@@ -1,0 +1,17 @@
+<mat-grid-list cols="4" rowHeight="400" style="padding:10px">
+  <mat-grid-tile *ngFor="let vuelo of vueloso">
+    <mat-card class="vuelo-card">
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>Destino: {{vuelo.ciudad}}</mat-card-title>
+        <mat-card-subtitle>Precio*: {{vuelo.precio | currency}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="http://via.placeholder.com/200x200?text=Vuelos+TandS">
+
+      <mat-card-actions align="end">
+        <button mat-button color="primary" routerLink="/formulario">Reservar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<p>* El precio es válido solo para viajes de lunes a viernes en la tarde, para otros horarios las tarifas cambian. Verifíquelo en su reserva.</p>

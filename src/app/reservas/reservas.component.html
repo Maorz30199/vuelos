@@ -1,0 +1,19 @@
+<mat-grid-list cols="4" rowHeight="400" style="padding:10px">
+  <mat-grid-tile *ngFor="let reserva of reservass | filtrocedula:busqueda">
+    <mat-card class="vuelo-card">
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>Reserva a: {{reserva.nombre}}</mat-card-title>
+        <mat-card-subtitle>Cédula: {{reserva.cedula}}</mat-card-subtitle>
+        <mat-card-subtitle>Con destino: {{reserva.ciudad}}</mat-card-subtitle>
+        <mat-card-subtitle>Día: {{reserva.dia_reserva}}</mat-card-subtitle>
+
+
+      </mat-card-header>
+
+      <mat-card-actions align="end">
+        <button mat-button color="primary" routerLink="/">Regresar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

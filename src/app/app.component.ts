@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'vuelos';
+
+
+  busqueda= '';
+
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
 }

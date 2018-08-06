@@ -1,18 +1,62 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgModule,
+         CUSTOM_ELEMENTS_SCHEMA
+} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule }   from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//Mudulos de angular material
+import {MatToolbarModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatCardModule,
+        MatGridListModule,
+        MatDialogModule,
+} from '@angular/material';
+import { VuelosComponent } from './vuelos/vuelos.component';
+import { ReservasComponent } from './reservas/reservas.component';
+import { FormreservaComponent } from './formreserva/formreserva.component';
+import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VuelosComponent,
+    ReservasComponent,
+    FormreservaComponent,
+    FiltrocedulaPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatCardModule,
+    MatGridListModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
