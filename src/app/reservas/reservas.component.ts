@@ -13,37 +13,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ReservasComponent implements OnInit {
 
-  //vueloso: Vuelos[] = [];
-  //vuelos: Vuelos = {
-  //  ciudad: "Cali",
-  /*  precio: 35
-  }
 
-
-  @Input()
-  cedula: number= 12;
-  constructor(private http:HttpClient) { }
-
-  ngOnInit() {
-    //this.vueloso = VUELOS as any;
-    //console.log(this.vueloso);
-    this.obtenerVuelos();
-  }
-
-  agregarVuelos() {
-    let vuelos = 'Sergio';
-    vuelos = 'Iván';
-
-    this.vuelos.ciudad = vuelos;
-  }
-
-  obtenerVuelos(){
-    this.http.get('http://localhost:8080/api/vuelos')
-      .subscribe((vueloso: Vuelos[])=> {
-      console.log(this.vueloso)
-      this.vueloso=vueloso;
-    })
-  }*/
 
   constructor(private http:HttpClient) { }
 
@@ -51,6 +21,10 @@ export class ReservasComponent implements OnInit {
 
   @Input('reservas')
   reservas: Reservas;
+
+  actualizacion = new Date();
+  busqueda= '';
+
   ngOnInit(){
     this.obtenerReservas();
   }

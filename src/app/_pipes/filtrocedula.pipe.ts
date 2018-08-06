@@ -6,15 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FiltrocedulaPipe implements PipeTransform {
 
 
-  transform(valor: number): any {
-      let x:number = 0;
-      let ar: Array<number> = [];
-      while(x < valor){
-        ar.push(x+1);
-        x++;
-      }
-
-      return !ar;
-    }
-
+  transform(items: any[], value: number): any {
+    return items.filter(item => item.cedula.indexOf(value) >= 0);
+  }
 }

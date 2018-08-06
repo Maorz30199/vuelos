@@ -6,8 +6,8 @@ import { FormreservaComponent } from './formreserva/formreserva.component';
 
 const routes: Routes = [
   { path: 'vuelos', component: VuelosComponent},
-  { path: 'reservas', component: ReservasComponent},
-  { path: 'formulario', component: FormreservaComponent}
+  { path: 'consulta-reserva', component: ReservasComponent},
+  { path: 'reserva/:ciudad/:precio', component: FormreservaComponent}
 ];
 
 @NgModule({

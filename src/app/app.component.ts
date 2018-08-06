@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
+
 
 
 

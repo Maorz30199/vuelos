@@ -16,11 +16,11 @@ export class VuelosComponent implements OnInit {
   @Input('vuelos')
   vuelos: Vuelos;
 
-  ciudad: string= 'Bucaramenaga';
   estatus: boolean= true;
   cedula: number= 15;
   @Output('onActivate')
   estado: boolean= false;
+
 
   constructor(private http:HttpClient) { }
   ngOnInit() {

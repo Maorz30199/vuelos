@@ -1,5 +1,16 @@
+<mat-grid-list cols="4" rowHeight="100">
+  <mat-grid-tile colspan="1">
+    <p>
+      <code>Última actualización:  {{ actualizacion | date:'dd-MM-yyyy' }}</code>
+    </p>
+    <p>
+      <code>Última hora: {{ actualizacion | date:'mm:HH' }}</code>
+    </p>
+  </mat-grid-tile>
+
+</mat-grid-list>
 <mat-grid-list cols="4" rowHeight="400" style="padding:10px">
-  <mat-grid-tile *ngFor="let reserva of reservass | filtrocedula:busqueda">
+  <mat-grid-tile *ngFor="let reserva of reservass | filtrocedula:busqueda; let i = index">
     <mat-card class="vuelo-card">
       <mat-card-header>
         <div mat-card-avatar></div>

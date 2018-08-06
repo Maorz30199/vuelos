@@ -1,48 +1,47 @@
-<mat-toolbar color="primary">Vuelos TandS</mat-toolbar>
-<mat-accordion class="example-headers-align">
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Consultar nuestros vuelos disponibles
-      </mat-panel-title>
-      <mat-panel-description>
-        Nivel Nacional
-        <mat-icon>account_circle</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+<mat-toolbar class="mat-elevation-z6 main-menu" color="primary">Vuelos TandS</mat-toolbar>
+<div class="container-panel">
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Consultar Vuelos
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>flight takeoff</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-    <mat-form-field>
-      <input matInput type="number" min="1" placeholder="Ingrese su cédula" [(ngModel)]="busqueda">
-    </mat-form-field>
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
+        <button mat-button color="primary" routerLink="vuelos">Consultar</button>
 
-    <mat-action-row>
-      <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
-      <button mat-button color="primary" routerLink="vuelos">Consultar</button>
+      </mat-action-row>
+    </mat-expansion-panel>
 
-    </mat-action-row>
-  </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Ver sus reservas
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>account_box</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Ver sus reservas
-      </mat-panel-title>
-      <mat-panel-description>
-        Unicamente con su cédula
-        <mat-icon>map</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput type="search" placeholder="Ingrese su Cédula" [(ngModel)]="busqueda.cedula" name="cedula"/>
+        <button mat-button matPrefix mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Ingrese su cédula">
-    </mat-form-field>
-    <p>Estado de la reserva</p>
-    <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Atrás</button>
-      <button mat-button color="primary" routerLink="reservas">Consultar</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-
-</mat-accordion>
-<app-reservas></app-reservas>
-<router-outlet></router-outlet>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Atrás</button>
+        <button mat-button color="primary" routerLink="consulta-reserva">Consultar</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

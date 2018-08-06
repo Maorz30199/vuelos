@@ -7,3 +7,18 @@
   justify-content: space-between;
   align-items: center;
 }
+.main-menu {
+  position: fixed;
+  z-index: 100;
+  text-align: center;
+}
+.container {
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.container-panel{
+  padding-top: 80px;
+  padding-left: 310px;
+  padding-right: 310px;
+}
