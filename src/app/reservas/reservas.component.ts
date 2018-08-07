@@ -3,6 +3,7 @@ import {Vuelos} from './../_interfaces/vuelos.interface';
 import {Reservas} from './../_interfaces/reservas.interface';
 import * as VUELOS from './../../assets/data/vuelos.json';
 import {HttpClient} from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -13,27 +14,32 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ReservasComponent implements OnInit {
 
+  public busqueda: number;
 
+  constructor(private http:HttpClient,
+      private route: ActivatedRoute,
+      private router: Router
+    ) { }
 
-  constructor(private http:HttpClient) { }
+  reservas: Reservas[] = [];
 
-  reservass: Reservas[] = [];
-
-  @Input('reservas')
-  reservas: Reservas;
-
+  // Se obtiene la actualizacion por medio de la función Date()
   actualizacion = new Date();
-  busqueda= '';
 
   ngOnInit(){
+    this.route.params.subscribe(params => {
+      if(params['busqueda']!=null){
+        this.busqueda = +params['busqueda'];
+      }
+    });
     this.obtenerReservas();
   }
 
   obtenerReservas(){
     this.http.get('http://localhost:8080/api/reservas')
-      .subscribe((reservass: Reservas[])=> {
-      console.log(this.reservass)
-      this.reservass=reservass;
+      .subscribe((reservas: Reservas[])=> {
+      //console.log(this.reservas)
+      this.reservas=reservas;
     })
   }
 }

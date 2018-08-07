@@ -4,7 +4,6 @@ import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
 
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,7 +13,7 @@ export class AppComponent {
   title = 'vuelos';
 
 
-  busqueda= '';
+
 
   step = 0;
 

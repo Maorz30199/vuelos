@@ -19,6 +19,7 @@ reserva: any;
 public ciudad: string;
 public precio: number;
   ngOnInit() {
+    //Obteniendo los datos enviados desde el componente vuelos
     this.route.params.subscribe(params => {
    if(params['precio']!=null){
        this.precio = +params['precio'];
@@ -38,6 +39,7 @@ public precio: number;
       ciudad: this.ciudad,
       precio: this.precio
     };
+    //Se envía el formulario de la reserva realizada, a través del metodo POST
     this.http.post('http://localhost:8080/api/reservas', parametros)
       .subscribe((reserva: Response)=> {
       console.log(this.reserva)

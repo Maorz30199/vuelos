@@ -3,7 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule,
          CUSTOM_ELEMENTS_SCHEMA
 } from '@angular/core';
-
+// Modulo http me permite utilizar los metodos GET y POST
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,
          ReactiveFormsModule
@@ -25,6 +25,7 @@ import {MatToolbarModule,
         MatCardModule,
         MatGridListModule,
         MatDialogModule,
+        MatSidenavModule
 } from '@angular/material';
 import { VuelosComponent } from './vuelos/vuelos.component';
 import { ReservasComponent } from './reservas/reservas.component';
@@ -56,6 +57,7 @@ import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
     MatCardModule,
     MatGridListModule,
     MatDialogModule,
+    MatSidenavModule,
     FormsModule,
     ReactiveFormsModule
   ],

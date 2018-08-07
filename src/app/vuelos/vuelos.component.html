@@ -1,5 +1,5 @@
-<mat-grid-list cols="4" rowHeight="400" style="padding:10px">
-  <mat-grid-tile *ngFor="let vuelo of vueloso">
+<mat-grid-list cols="4" rowHeight="400" style="padding:10px" *ngIf="vuelos.length > 0 else noData">
+  <mat-grid-tile *ngFor="let vuelo of vuelos">
     <mat-card class="vuelo-card">
       <mat-card-header>
         <mat-icon>flight takeoff</mat-icon>
@@ -15,4 +15,11 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-<p>* El precio es válido solo para viajes de lunes a viernes en la tarde, para otros horarios las tarifas cambian. Verifíquelo en su reserva.</p>
+<div class="container">
+  <p> * El precio es válido solo para viajes de lunes a viernes en la tarde, para otros horarios las tarifas cambian. Verifíquelo en su reserva.</p>
+</div>
+<ng-template #noData>
+  <div class="mat-elevation-z8 noData">
+    <h2>En el momento no hay vuelos disponibles</h2>
+  </div>
+</ng-template>
