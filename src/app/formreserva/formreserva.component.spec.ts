@@ -16,7 +16,9 @@ import {MatToolbarModule,
         MatCardModule,
         MatGridListModule,
         MatDialogModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatRadioModule,
+        MatSelectModule
 } from '@angular/material';
 
 describe('FormreservaComponent', () => {
@@ -41,7 +43,9 @@ describe('FormreservaComponent', () => {
         MatCardModule,
         MatGridListModule,
         MatDialogModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatRadioModule,
+        MatSelectModule
       ],
       declarations: [ FormreservaComponent]
     })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import {Reservas} from './../_interfaces/reservas.interface';
 
 
 @Component({
@@ -14,12 +15,15 @@ export class FormreservaComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) { }
-
+//valiable donde se almacenan los parametros de la reserva a enviar
 reserva: any;
+//nueva coleccción para validar parametros
+reservasvalidas: Reservas[] = [];
+validacion: boolean= false;
 public ciudad: string;
 public precio: number;
 nuevoprecio: number;
-horario: string= '';
+horario: string= 'Tarde';
 viajes: string[] = ["Tarde", "Mañana", "Fin de Semana"];
 dia = '';
   ngOnInit() {
@@ -56,19 +60,39 @@ dia = '';
     }
   }
   crearReserva(){
-    var parametros = {
-      nombre: this.reserva.nombre,
-      cedula: this.reserva.cedula,
-      edad: this.reserva.edad,
-      dia_reserva: this.reserva.dia_reserva,
-      ciudad: this.ciudad,
-      precio: this.nuevoprecio
-    };
-    //Se envía el formulario de la reserva realizada, a través del metodo POST
-    this.http.post('http://localhost:8080/api/reservas', parametros)
-      .subscribe((reserva: Response)=> {
-      console.log(this.reserva)
-      this.reserva=reserva;
-    })
+    this.http.get('http://localhost:8080/api/reservas')
+      .subscribe((reservas: Reservas[])=> {
+
+      for(let i in reservas){
+        if(reservas[i].cedula == this.reserva.cedula.toString() && reservas[i].dia_reserva == this.reserva.dia_reserva.toString()){
+          console.log(reservas[i].cedula)
+          console.log(reservas[i])
+          this.reservasvalidas= [reservas[i]];
+          console.log(reservas)
+          console.log(this.reservasvalidas)
+          this.validacion=true;
+          return this.gestionReserva()
+        }
+      }
+      return this.gestionReserva()
+    });
+  }
+  gestionReserva(){
+    if(this.validacion==false){
+      var parametros = {
+        nombre: this.reserva.nombre,
+        cedula: this.reserva.cedula,
+        edad: this.reserva.edad,
+        dia_reserva: this.reserva.dia_reserva,
+        ciudad: this.ciudad,
+        precio: this.nuevoprecio
+      };
+      //Se envía el formulario de la reserva realizada, a través del metodo POST
+      this.http.post('http://localhost:8080/api/reservas', parametros)
+        .subscribe((reserva: Response)=> {
+        console.log(this.reserva)
+        this.reserva=reserva;
+      })
+    }
   }
 }

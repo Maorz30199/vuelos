@@ -32,7 +32,6 @@ import {MatToolbarModule,
 import { VuelosComponent } from './vuelos/vuelos.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { FormreservaComponent } from './formreserva/formreserva.component';
-import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
 
 
 @NgModule({
@@ -40,8 +39,7 @@ import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
     AppComponent,
     VuelosComponent,
     ReservasComponent,
-    FormreservaComponent,
-    FiltrocedulaPipe
+    FormreservaComponent
   ],
   imports: [
     BrowserModule,

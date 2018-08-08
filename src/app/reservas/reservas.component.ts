@@ -6,7 +6,6 @@ import {HttpClient} from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-reservas',
   templateUrl: './reservas.component.html',
@@ -22,7 +21,6 @@ export class ReservasComponent implements OnInit {
     ) { }
 
   reservas: Reservas[] = [];
-
   // Se obtiene la actualizacion por medio de la función Date()
   actualizacion = new Date();
 
@@ -38,8 +36,17 @@ export class ReservasComponent implements OnInit {
   obtenerReservas(){
     this.http.get('http://localhost:8080/api/reservas')
       .subscribe((reservas: Reservas[])=> {
-      //console.log(this.reservas)
-      this.reservas=reservas;
-    })
-  }
+
+      for(let i in reservas){
+
+        if(reservas[i].cedula == this.busqueda.toString()){
+          console.log(reservas[i].cedula)
+          console.log(reservas[i])
+          this.reservas= [reservas[i]];
+          console.log(reservas)
+          console.log(this.reservas)
+        }
+      }
+      })
+    }
 }

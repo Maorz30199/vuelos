@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
 
 
 
@@ -11,7 +10,7 @@ import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
 })
 export class AppComponent {
   title = 'vuelos';
-  
+
   step = 0;
 
   setStep(index: number) {
