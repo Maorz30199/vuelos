@@ -1,0 +1,21 @@
+radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.radio-button {
+  margin: 5px;
+}
+
+.selected-value {
+  margin: 15px 0;
+}
+.containerform {
+  max-width: 350px;
+  margin: 15px;
+  background-color: white;
+  padding-left: 50px;
+  padding-right: 25px;
+  margin-left: 290px;
+  padding-bottom: 30px;
+}

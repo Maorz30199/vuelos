@@ -1,27 +1,19 @@
-<mat-sidenav-container class="example-container sidenav">
-  <mat-sidenav mode="side" opened>Reservas con la cédula: {{busqueda}}</mat-sidenav>
-  <mat-sidenav-content><code>Fecha: {{actualizacion | date:'dd-MM-yyyy'}}</code></mat-sidenav-content>
-  <mat-sidenav-content><code>Hora: {{ actualizacion | date:'mm:HH' }}</code></mat-sidenav-content>
-</mat-sidenav-container>
-
-
-<mat-grid-list cols="4" rowHeight="400" style="padding:10px" *ngIf="reservas.length > 0 else noData">
-  <mat-grid-tile  *ngFor="let reserva of reservas | filtrocedula:busqueda; let i = index">
-    <mat-card class="vuelo-card">
-      <mat-card-header>
-        <mat-icon>flight_takeoff</mat-icon>
-        <div mat-card-avatar></div>
-        <mat-card-title>Reserva a: {{reserva.nombre}}</mat-card-title>
-        <mat-card-subtitle>Cédula: {{reserva.cedula}}</mat-card-subtitle>
-        <mat-card-subtitle>Con destino: {{reserva.ciudad}}</mat-card-subtitle>
-        <mat-card-subtitle>Día: {{reserva.dia_reserva}}</mat-card-subtitle>
-      </mat-card-header>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-
-<ng-template #noData>
-  <div class="mat-elevation-z8 noData">
-    <h2>No tienes ninguna reserva</h2>
-  </div>
-</ng-template>
+  <mat-sidenav-container class="example-container sidenav">
+    <mat-sidenav mode="side" opened [{ng-model}]="busqueda" name="busqueda">{{busqueda}}</mat-sidenav>
+    <mat-sidenav-content><code>Fecha: {{actualizacion | date:'dd-MM-yyyy'}}</code></mat-sidenav-content>
+    <mat-sidenav-content><code>Hora: {{ actualizacion | date:'mm:HH' }}</code></mat-sidenav-content>
+  </mat-sidenav-container>
+  <mat-grid-list cols="4" rowHeight="400" style="padding:10px">
+    <mat-grid-tile  *ngFor="let reserva of reservas | filtrocedula:busqueda">
+      <mat-card class="vuelo-card">
+        <mat-card-header>
+          <mat-icon>flight_takeoff</mat-icon>
+          <div mat-card-avatar></div>
+          <mat-card-title>Reserva a: {{reserva.nombre}}</mat-card-title>
+          <mat-card-subtitle>Cédula: {{reserva.cedula}}</mat-card-subtitle>
+          <mat-card-subtitle>Con destino: {{reserva.ciudad}}</mat-card-subtitle>
+          <mat-card-subtitle>Día: {{reserva.dia_reserva}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>

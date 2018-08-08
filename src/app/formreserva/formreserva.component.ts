@@ -18,6 +18,10 @@ export class FormreservaComponent implements OnInit {
 reserva: any;
 public ciudad: string;
 public precio: number;
+nuevoprecio: number;
+horario: string= '';
+viajes: string[] = ["Tarde", "Mañana", "Fin de Semana"];
+dia = '';
   ngOnInit() {
     //Obteniendo los datos enviados desde el componente vuelos
     this.route.params.subscribe(params => {
@@ -27,8 +31,29 @@ public precio: number;
    if(params['ciudad']!=null){
        this.ciudad = params['ciudad'];
    }
-});
+  });
+    this.obtenerPrecio();
     this.reserva = {};
+    console.log(this.dia)
+    console.log(this.horario)
+  }
+  obtenerPrecio(){
+    console.log(this.horario)
+    if(this.horario === "Mañana"){
+      console.log(this.nuevoprecio)
+          console.log(this.horario)
+      return this.nuevoprecio = this.precio*1.2
+    }
+    else if(this.horario === "Fin de Semana"){
+      console.log(this.nuevoprecio)
+      console.log(this.horario)
+      return this.nuevoprecio = this.precio*1.5
+    }
+    else{
+      console.log(this.nuevoprecio)
+      console.log(this.horario)
+      return this.nuevoprecio = this.precio
+    }
   }
   crearReserva(){
     var parametros = {
@@ -37,7 +62,7 @@ public precio: number;
       edad: this.reserva.edad,
       dia_reserva: this.reserva.dia_reserva,
       ciudad: this.ciudad,
-      precio: this.precio
+      precio: this.nuevoprecio
     };
     //Se envía el formulario de la reserva realizada, a través del metodo POST
     this.http.post('http://localhost:8080/api/reservas', parametros)

@@ -1,5 +1,5 @@
 export interface Reservas {
-  _id?: number,
+  horario?: string,
   nombre: string,
   cedula: string,
   edad: number,

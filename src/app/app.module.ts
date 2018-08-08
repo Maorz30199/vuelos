@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //Modulos de angular material
+import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule,
         MatButtonModule,
         MatExpansionModule,
@@ -22,10 +23,11 @@ import {MatToolbarModule,
         MatDatepickerModule,
         MatNativeDateModule,
         MatInputModule,
-        MatCardModule,
         MatGridListModule,
         MatDialogModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatRadioModule,
+        MatSelectModule
 } from '@angular/material';
 import { VuelosComponent } from './vuelos/vuelos.component';
 import { ReservasComponent } from './reservas/reservas.component';
@@ -59,7 +61,9 @@ import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
     MatDialogModule,
     MatSidenavModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

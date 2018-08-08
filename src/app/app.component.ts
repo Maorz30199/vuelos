@@ -11,10 +11,7 @@ import { FiltrocedulaPipe } from './_pipes/filtrocedula.pipe';
 })
 export class AppComponent {
   title = 'vuelos';
-
-
-
-
+  
   step = 0;
 
   setStep(index: number) {

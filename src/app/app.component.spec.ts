@@ -1,11 +1,42 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule}   from '@angular/forms';
 import { AppComponent } from './app.component';
+
+import {MatToolbarModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatCardModule,
+        MatGridListModule,
+        MatDialogModule,
+        MatSidenavModule
+} from '@angular/material';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        FormsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatCardModule,
+        MatGridListModule,
+        MatDialogModule,
+        MatSidenavModule
       ],
       declarations: [
         AppComponent
@@ -26,6 +57,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to vuelos!');
+    expect(compiled.querySelector('h1').textContent).toContain('Bienvenivos a vuelos TandS');
   }));
 });

@@ -1,5 +1,6 @@
 <mat-toolbar class="mat-elevation-z6 main-menu" color="primary">Vuelos TandS</mat-toolbar>
 <div class="container-panel">
+  <h1>Bienvenivos a vuelos TandS</h1>
   <mat-accordion class="example-headers-align">
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
       <mat-expansion-panel-header>
@@ -29,7 +30,7 @@
       </mat-expansion-panel-header>
 
       <mat-form-field>
-        <input matInput type="search" required placeholder="Ingrese su Cédula" [(ngModel)]="busqueda" name="busqueda" #uname="ngModel"/>
+        <input matInput required type="search" placeholder="Ingrese su Cédula" [(ngModel)]="busqueda" name="busqueda" #uname="ngModel"/>
         <button mat-button matPrefix mat-icon-button>
           <mat-icon>search</mat-icon>
         </button>
@@ -45,8 +46,8 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-<footer _ngcontent-c10="" class="docs-footer" color="primary">
-    <div _ngcontent-c10="" class="docs-footer-copyright">
-      <span _ngcontent-c10="">Powered by Mauricio Ruiz</span>
+<footer class="docs-footer" color="primary">
+    <div>
+      <span>Desarrollado por Mauricio Ruiz</span>
     </div>
 </footer>

@@ -1,32 +1,48 @@
-<form (ngSubmit)="crearReserva()">
-  <h2 *ngIf="ciudad">Realiza tu reserva para {{ciudad}}</h2>
-  <p>
-    <mat-form-field appearance="legacy">
-      <mat-label>Nombre completo</mat-label>
-      <input matInput placeholder="Nombre completo" type="text" [(ngModel)]="reserva.nombre" name="nombre">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="standard">
-      <mat-label>Número de cédula</mat-label>
-      <input required matInput placeholder="Número de cédula" [(ngModel)]="reserva.cedula" name="cedula">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Edad</mat-label>
-      <input matInput placeholder="Edad" [(ngModel)]="reserva.edad" name="edad">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Día de la reserva</mat-label>
-      <input matInput placeholder="Día de la reserva" [(ngModel)]="reserva.dia_reserva" name="dia_reserva">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-  </p>
-  <button type="submit">Submit</button>
+
+<form class="containerform">
+    <h2 *ngIf="ciudad">Realiza tu reserva para {{ciudad}}</h2>
+    <mat-radio-group class="radio-group" [(ngModel)]="horario" name="horario" (change)="obtenerPrecio(horario)">
+      <mat-radio-button class="radio-button" *ngFor="let viaje of viajes" [value]="viaje">
+        {{viaje}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <div class="selected-value">El valor del viaje es: {{nuevoprecio |currency}}</div>
+    <form (ngSubmit)="crearReserva()">
+      <p>
+        <mat-form-field appearance="legacy">
+          <mat-label>Nombre completo</mat-label>
+          <input matInput placeholder="Nombre completo" type="text" [(ngModel)]="reserva.nombre" name="nombre">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Número de cédula</mat-label>
+          <input required matInput placeholder="Número de cédula" [(ngModel)]="reserva.cedula" name="cedula">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Edad</mat-label>
+          <input matInput placeholder="Edad" [(ngModel)]="reserva.edad" name="edad">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+      <mat-form-field>
+      <mat-select [(value)]="dia" [(ngModel)]="reserva.dia_reserva" name="dia_reserva">
+        <mat-option>None</mat-option>
+        <mat-option *ngIf="horario != 'Fin de Semana'" value="Lunes">Lunes</mat-option>
+        <mat-option *ngIf="horario != 'Fin de Semana'" value="Martes">Martes</mat-option>
+        <mat-option *ngIf="horario != 'Fin de Semana'" value="Miercoles">Miercoles</mat-option>
+        <mat-option *ngIf="horario != 'Fin de Semana'" value="Jueves">Jueves</mat-option>
+        <mat-option *ngIf="horario != 'Fin de Semana'" value="Viernes">Viernes</mat-option>
+        <mat-option *ngIf="horario == 'Fin de Semana'" value="Sabado">Sábado</mat-option>
+        <mat-option *ngIf="horario == 'Fin de Semana'" value="Domingo">Domingo</mat-option>
+      </mat-select>
+      </mat-form-field>
+      <p>
+        <button mat-button color="primary" type="submit">Realizar reserva</button>
+      </p>
+
 </form>
